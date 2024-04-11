@@ -23,20 +23,31 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void nud_a_ValueChanged(object sender, EventArgs e)
+        {
+            //textbox_a. = Decimal.ToInt32(nud_a.Value);
+            
+        }
     }
 
     public class Model
     {
-        private int value;
-
+        private int value_a;
+        private int value_b;
+        private int value_c;
         public void SetValue(int value)
         {
-            this.value = value;
+            if (value < 0)
+                value = 0;
+            else if (value > 100)
+                value = 100;
+
         }
 
         public int GetValue()
         {
-            return this.value;
+            return value_a; ;
         }
     }
 }
