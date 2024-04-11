@@ -12,9 +12,31 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        Model model;
         public Form1()
         {
             InitializeComponent();
+            model = new Model();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class Model
+    {
+        private int value;
+
+        public void SetValue(int value)
+        {
+            this.value = value;
+        }
+
+        public int GetValue()
+        {
+            return this.value;
         }
     }
 }
