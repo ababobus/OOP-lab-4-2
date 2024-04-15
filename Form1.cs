@@ -19,18 +19,26 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             model = new Model();
+
+            model.observers += new System.EventHandler(this.UpdateFromModel);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void UpdateFromModel(object sender, EventArgs e)
         {
+            textbox_a.Text = model.GetValue('a').ToString();
+            nud_a.Value = model.GetValue('a');
+            trackbar_a.Value = model.GetValue('a');
 
+            textbox_b.Text = model.GetValue('b').ToString();
+            nud_b.Value = model.GetValue('b');
+            trackbar_b.Value = model.GetValue('b');
+
+            textbox_c.Text = model.GetValue('c').ToString();
+            nud_c.Value = model.GetValue('c');
+            trackbar_c.Value = model.GetValue('c');
         }
 
-        private void nud_a_ValueChanged(object sender, EventArgs e)
-        {
-            //textbox_a. = Decimal.ToInt32(nud_a.Value);
-
-        }
 
         public class Model
         {
@@ -97,6 +105,16 @@ namespace WindowsFormsApp1
                 else if (sender == textbox_c)
                     model.SetValue('c', Convert.ToInt32(textbox_c.Text));
         }
+        private void tb_TextChanged(object sender, EventArgs e)
+        {
+            if (sender == textbox_a)
+                model.SetValue('a', Convert.ToInt32(textbox_a.Text));
+            else if (sender == textbox_b)
+                model.SetValue('b', Convert.ToInt32(textbox_b.Text));
+            else if (sender == textbox_c)
+                model.SetValue('c', Convert.ToInt32(textbox_c.Text));
+        }
+
         private void nud_ValueChanged(object sender, EventArgs e)
         {
             if (sender == nud_a)
