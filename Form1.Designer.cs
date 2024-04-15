@@ -52,6 +52,7 @@
             this.textbox_a.Name = "textbox_a";
             this.textbox_a.Size = new System.Drawing.Size(215, 26);
             this.textbox_a.TabIndex = 0;
+            this.textbox_a.KeyDown += tb_KeyDown;
             // 
             // textbox_b
             // 
@@ -146,6 +147,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Textbox_a_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
