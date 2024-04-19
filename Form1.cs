@@ -20,9 +20,10 @@ namespace WindowsFormsApp1
             InitializeComponent();
             model = new Model();
 
-            model.observers += new System.EventHandler(this.UpdateFromModel);
+            //model.observers += new System.EventHandler(this.UpdateFromModel);
+            //this.UpdateFromModel(this.model, null);
         }
-
+        /*
 
         private void UpdateFromModel(object sender, EventArgs e)
         {
@@ -40,7 +41,7 @@ namespace WindowsFormsApp1
         }
 
 
-        public class Model
+        /*public class Model
         {
             private int value_a;
             private int value_b;
@@ -105,15 +106,6 @@ namespace WindowsFormsApp1
                 else if (sender == textbox_c)
                     model.SetValue('c', Convert.ToInt32(textbox_c.Text));
         }
-        private void tb_TextChanged(object sender, EventArgs e)
-        {
-            if (sender == textbox_a)
-                model.SetValue('a', Convert.ToInt32(textbox_a.Text));
-            else if (sender == textbox_b)
-                model.SetValue('b', Convert.ToInt32(textbox_b.Text));
-            else if (sender == textbox_c)
-                model.SetValue('c', Convert.ToInt32(textbox_c.Text));
-        }
 
         private void nud_ValueChanged(object sender, EventArgs e)
         {
@@ -123,6 +115,7 @@ namespace WindowsFormsApp1
                 model.SetValue('b', Convert.ToInt32(nud_b.Value));
             else if (sender == nud_c)
                 model.SetValue('c', Convert.ToInt32(nud_c.Value));
+                //model.SetValue('c', Convert.ToInt32(nud_c.Value));
         }
         private void trb_ValueChanged(object sender, EventArgs e)
         {
@@ -132,7 +125,7 @@ namespace WindowsFormsApp1
                 model.SetValue('b', Convert.ToInt32(trackbar_b.Value));
             else if (sender == trackbar_c)
                 model.SetValue('c', Convert.ToInt32(trackbar_c.Value));
-        }
+        }*/
     }
 
 }
