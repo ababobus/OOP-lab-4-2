@@ -22,57 +22,19 @@ namespace WindowsFormsApp1
             this.UpdateFromModel(this.model, null);
             model.observers += new System.EventHandler(this.UpdateFromModel);
 
+
+            model.set_a(Properties.Settings.Default.SettingA);
+            model.set_b(Properties.Settings.Default.SettingB);
+            model.set_c(Properties.Settings.Default.SettingC);
         }
 
-        /*
-        private void UpdateFromModel(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            textbox_a.Text = model.get_a().ToString();
-            nud_a.Value = model.get_a();
-            trackbar_a.Value = model.get_a();
-
-            textbox_b.Text = model.get_b().ToString();
-            nud_b.Value = model.get_b();
-            trackbar_b.Value = model.get_b();
-
-            textbox_c.Text = model.get_c().ToString();
-            nud_c.Value = model.get_c();
-            trackbar_c.Value = model.get_c();
+            Properties.Settings.Default.SettingA = model.get_a();
+            Properties.Settings.Default.SettingB = model.get_b();
+            Properties.Settings.Default.SettingC = model.get_c();
+            Properties.Settings.Default.Save();
         }
-
-        private void tb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (sender == textbox_a)
-                    model.set_a(Convert.ToInt32(textbox_a.Text));
-                else if (sender == textbox_b)
-                    model.set_b(Convert.ToInt32(textbox_b.Text));
-                else if (sender == textbox_c)
-                    model.set_c(Convert.ToInt32(textbox_c.Text));
-
-            }
-        }
-
-        private void trb_ValueChanged(object sender, EventArgs e)
-        {
-            if (sender == trackbar_a)
-                model.set_a(Convert.ToInt32(trackbar_a.Value));
-            else if (sender == trackbar_b)
-                model.set_b(Convert.ToInt32(trackbar_b.Value));
-            else if (sender == trackbar_c)
-                model.set_c(Convert.ToInt32(trackbar_c.Value));
-        }
-        private void nud_ValueChanged(object sender, EventArgs e)
-        {
-            if (sender == nud_a)
-                model.set_a(Convert.ToInt32(nud_a.Value));
-            else if (sender == nud_b)
-                model.set_b(Convert.ToInt32(nud_b.Value));
-            else if (sender == nud_c)
-                model.set_c(Convert.ToInt32(nud_c.Value));
-        }*/
-
 
         private void UpdateFromModel(object sender, EventArgs e)
         {
@@ -98,28 +60,28 @@ namespace WindowsFormsApp1
                 else if (sender == textbox_b)
                     model.set_b(Convert.ToInt32(textbox_b.Text));
                 else if (sender == textbox_c)
-                    model.set_c(Convert.ToInt32(textbox_c.Text));// Setting the C property
+                    model.set_c(Convert.ToInt32(textbox_c.Text));
             }
 
         }
         private void trb_ValueChanged(object sender, EventArgs e)
         {
             if (sender == trackbar_a)
-                model.set_a(Convert.ToInt32(trackbar_a.Value)); // Setting the A property
+                model.set_a(Convert.ToInt32(trackbar_a.Value)); 
             else if (sender == trackbar_b)
-                model.set_b(Convert.ToInt32(trackbar_b.Value));// Setting the B property
+                model.set_b(Convert.ToInt32(trackbar_b.Value));
             else if (sender == trackbar_c)
-                model.set_c(Convert.ToInt32(trackbar_c.Value)); // Setting the C property
+                model.set_c(Convert.ToInt32(trackbar_c.Value)); 
         }
 
         private void nud_ValueChanged(object sender, EventArgs e)
         {
             if (sender == nud_a)
-                model.set_a(Convert.ToInt32(nud_a.Value)); // Setting the A property
+                model.set_a(Convert.ToInt32(nud_a.Value));
             else if (sender == nud_b)
-                model.set_b(Convert.ToInt32(nud_b.Value)); // Setting the B property
+                model.set_b(Convert.ToInt32(nud_b.Value));
             else if (sender == nud_c)
-                model.set_c(Convert.ToInt32(nud_c.Value)); // Setting the C property
+                model.set_c(Convert.ToInt32(nud_c.Value));
         }
 
     }
