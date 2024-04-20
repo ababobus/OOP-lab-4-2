@@ -85,7 +85,6 @@
             this.nud_b.Size = new System.Drawing.Size(215, 26);
             this.nud_b.TabIndex = 4;
             this.nud_b.ValueChanged += nud_ValueChanged;
-            //this.nud_b.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // nud_c
             // 
