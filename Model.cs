@@ -23,8 +23,6 @@ namespace WindowsFormsApp1
             b = Math.Max(a, b);
             c = Math.Max(a, c);
 
-            Properties.Settings.Default.SettingA= a ;
-            Properties.Settings.Default.Save();
 
             observers?.Invoke(this, EventArgs.Empty);
         } 
@@ -36,9 +34,6 @@ namespace WindowsFormsApp1
             value = Math.Max(get_a(), Math.Min(get_c(), value));
             b = value;
 
-
-            Properties.Settings.Default.SettingB = b;
-            Properties.Settings.Default.Save();
             observers?.Invoke(this, EventArgs.Empty);
         }
 
@@ -48,9 +43,6 @@ namespace WindowsFormsApp1
             b = Math.Min(c, b);
             a = Math.Min(c, a);
 
-            Properties.Settings.Default.SettingC = c;
-
-            Properties.Settings.Default.Save();
             observers?.Invoke(this, EventArgs.Empty);
         }
     }

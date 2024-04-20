@@ -19,13 +19,12 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             model = new Model();
+
             this.UpdateFromModel(this.model, null);
             model.observers += new System.EventHandler(this.UpdateFromModel);
-
-
-            model.set_a(Properties.Settings.Default.SettingA);
-            model.set_b(Properties.Settings.Default.SettingB);
             model.set_c(Properties.Settings.Default.SettingC);
+            model.set_b(Properties.Settings.Default.SettingB);
+            model.set_a(Properties.Settings.Default.SettingA);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

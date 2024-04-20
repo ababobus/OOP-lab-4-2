@@ -147,6 +147,7 @@
             this.Controls.Add(this.textbox_a);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nud_a)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_b)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_c)).EndInit();
