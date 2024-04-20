@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Configuration;
 namespace WindowsFormsApp1
 {
     internal class Model
@@ -22,78 +22,29 @@ namespace WindowsFormsApp1
             a = Math.Min(100, Math.Max(0, value));
             b = Math.Max(a, b);
             c = Math.Max(a, c);
-            
+
+            Properties.Settings.Default.SettingA= a ;
+            Properties.Settings.Default.Save();
+
             observers?.Invoke(this, EventArgs.Empty);
         } 
 
-        /*public void set_a(int value)
-        {
-            try
-            {
-                if (value < 0) { a = 0; }
-                else
-                {
-                    if (value > 100) { a = 100; }
-                    else { a = value; }
-                    if (a > b)
-                    {
-                        b = a;
-                        if (b > c) { c = b; }
-                    }
-                }
-            }
-            finally
-            {
-                observers?.Invoke(this, EventArgs.Empty);
-            }
-
-        }*/
-
-
-        /*public void set_a(int value)
-        {
-            if (value < 0) { a = 0; }
-            else
-            {
-                if (value > 100){ a = 100;}
-                else { a = value;}
-                if (a > b)
-                {
-                    b = a;
-                    if (b > c) {c = b;}
-                }
-            }
-            observers?.Invoke(this, EventArgs.Empty);
-        }
-
-        */public void set_b(int value)
+        public void set_b(int value)
         {
             
             value = Math.Min(100, Math.Max(0, value));
             value = Math.Max(get_a(), Math.Min(get_c(), value));
             b = value;
+            Properties.Settings.Default.Save();
             observers?.Invoke(this, EventArgs.Empty);
         }
 
-        /*public void set_c(int value)
-        {
-            if (value < 0) { c = 0; }
-            else
-            {
-                if (value > 100) { c = 100; }
-                else { c = value; }
-                if (c< b)
-                {
-                    b = c;
-                    if (b < a) { a = b; }
-                }
-            }
-        }*/
         public void set_c(int value)
         {
             c = Math.Min(100, Math.Max(0, value));
             b = Math.Min(c, b);
             a = Math.Min(c, a);
+            Properties.Settings.Default.Save();
             observers?.Invoke(this, EventArgs.Empty);
         }
     }
