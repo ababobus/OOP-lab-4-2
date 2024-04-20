@@ -52,7 +52,7 @@
             this.textbox_a.Name = "textbox_a";
             this.textbox_a.Size = new System.Drawing.Size(215, 26);
             this.textbox_a.TabIndex = 0;
-            this.textbox_a.KeyDown += tb_KeyDown;
+            this.textbox_a.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // textbox_b
             // 
@@ -60,7 +60,7 @@
             this.textbox_b.Name = "textbox_b";
             this.textbox_b.Size = new System.Drawing.Size(215, 26);
             this.textbox_b.TabIndex = 1;
-            this.textbox_b.KeyDown += tb_KeyDown;
+            this.textbox_b.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // textbox_c
             // 
@@ -68,7 +68,7 @@
             this.textbox_c.Name = "textbox_c";
             this.textbox_c.Size = new System.Drawing.Size(215, 26);
             this.textbox_c.TabIndex = 2;
-            this.textbox_c.KeyDown += tb_KeyDown;
+            this.textbox_c.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // nud_a
             // 
@@ -76,7 +76,7 @@
             this.nud_a.Name = "nud_a";
             this.nud_a.Size = new System.Drawing.Size(215, 26);
             this.nud_a.TabIndex = 3;
-            this.nud_a.ValueChanged += nud_ValueChanged;
+            this.nud_a.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // nud_b
             // 
@@ -84,7 +84,7 @@
             this.nud_b.Name = "nud_b";
             this.nud_b.Size = new System.Drawing.Size(215, 26);
             this.nud_b.TabIndex = 4;
-            this.nud_b.ValueChanged += nud_ValueChanged;
+            this.nud_b.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // nud_c
             // 
@@ -92,33 +92,34 @@
             this.nud_c.Name = "nud_c";
             this.nud_c.Size = new System.Drawing.Size(215, 26);
             this.nud_c.TabIndex = 5;
-            this.nud_c.ValueChanged += nud_ValueChanged;
+            this.nud_c.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // trackbar_a
             // 
             this.trackbar_a.Location = new System.Drawing.Point(46, 360);
+            this.trackbar_a.Maximum = 100;
             this.trackbar_a.Name = "trackbar_a";
             this.trackbar_a.Size = new System.Drawing.Size(215, 69);
             this.trackbar_a.TabIndex = 6;
-            this.trackbar_a.ValueChanged += trb_ValueChanged;
+            this.trackbar_a.ValueChanged += new System.EventHandler(this.trb_ValueChanged);
             // 
             // trackbar_b
             // 
             this.trackbar_b.Location = new System.Drawing.Point(397, 360);
+            this.trackbar_b.Maximum = 100;
             this.trackbar_b.Name = "trackbar_b";
             this.trackbar_b.Size = new System.Drawing.Size(215, 69);
             this.trackbar_b.TabIndex = 7;
-
-            this.trackbar_b.ValueChanged += trb_ValueChanged;
+            this.trackbar_b.ValueChanged += new System.EventHandler(this.trb_ValueChanged);
             // 
             // trackbar_c
             // 
             this.trackbar_c.Location = new System.Drawing.Point(714, 360);
+            this.trackbar_c.Maximum = 100;
             this.trackbar_c.Name = "trackbar_c";
             this.trackbar_c.Size = new System.Drawing.Size(215, 69);
             this.trackbar_c.TabIndex = 8;
-
-            this.trackbar_c.ValueChanged += trb_ValueChanged;
+            this.trackbar_c.ValueChanged += new System.EventHandler(this.trb_ValueChanged);
             // 
             // label1
             // 
@@ -146,7 +147,6 @@
             this.Controls.Add(this.textbox_a);
             this.Name = "Form1";
             this.Text = "Form1";
-            //this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_a)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_b)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_c)).EndInit();
