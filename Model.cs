@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
             c = Math.Max(a, c);
 
 
-            observers?.Invoke(this, EventArgs.Empty);
+            observers.Invoke(this, EventArgs.Empty);
         } 
 
         public void set_b(int value)
@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
             value = Math.Max(get_a(), Math.Min(get_c(), value));
             b = value;
 
-            observers?.Invoke(this, EventArgs.Empty);
+            observers.Invoke(this, EventArgs.Empty);
         }
 
         public void set_c(int value)
@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
             b = Math.Min(c, b);
             a = Math.Min(c, a);
 
-            observers?.Invoke(this, EventArgs.Empty);
+            observers.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
@@ -20,8 +21,8 @@ namespace WindowsFormsApp1
             InitializeComponent();
             model = new Model();
 
-            this.UpdateFromModel(this.model, null);
             model.observers += new System.EventHandler(this.UpdateFromModel);
+
             model.set_c(Properties.Settings.Default.SettingC);
             model.set_b(Properties.Settings.Default.SettingB);
             model.set_a(Properties.Settings.Default.SettingA);
@@ -55,11 +56,35 @@ namespace WindowsFormsApp1
             if (e.KeyCode == Keys.Enter)
             {
                 if (sender == textbox_a)
-                    model.set_a(Convert.ToInt32(textbox_a.Text)); 
+                    if (int.TryParse(textbox_a.Text, out int number))
+                    {
+                        //model.set_a(Convert.ToInt32(textbox_a.Text));
+                        model.set_a(number);
+                    }
+                    else
+                    {
+                        UpdateFromModel(sender, e);
+                    }
                 else if (sender == textbox_b)
-                    model.set_b(Convert.ToInt32(textbox_b.Text));
+                    if (int.TryParse(textbox_b.Text, out int number))
+                    {
+                        //model.set_b(Convert.ToInt32(textbox_b.Text));
+                        model.set_b(number);
+                    }
+                    else
+                    {
+                        UpdateFromModel(sender, e);
+                    }
                 else if (sender == textbox_c)
-                    model.set_c(Convert.ToInt32(textbox_c.Text));
+                    if (int.TryParse(textbox_c.Text, out int number))
+                    {
+                        //model.set_c(Convert.ToInt32(textbox_c.Text));
+                        model.set_c(number);
+                    }
+                    else
+                    {
+                        UpdateFromModel(sender, e);
+                    }
             }
 
         }
