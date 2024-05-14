@@ -53,6 +53,7 @@
             this.textbox_a.Size = new System.Drawing.Size(215, 26);
             this.textbox_a.TabIndex = 0;
             this.textbox_a.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
+            this.textbox_a.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textbox_b_MouseDown);
             // 
             // textbox_b
             // 
@@ -61,6 +62,7 @@
             this.textbox_b.Size = new System.Drawing.Size(215, 26);
             this.textbox_b.TabIndex = 1;
             this.textbox_b.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
+            this.textbox_b.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textbox_b_MouseDown);
             // 
             // textbox_c
             // 
@@ -69,11 +71,13 @@
             this.textbox_c.Size = new System.Drawing.Size(215, 26);
             this.textbox_c.TabIndex = 2;
             this.textbox_c.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
+            this.textbox_c.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textbox_b_MouseDown);
             // 
             // nud_a
             // 
             this.nud_a.Location = new System.Drawing.Point(46, 269);
             this.nud_a.Name = "nud_a";
+            this.nud_a.ReadOnly = true;
             this.nud_a.Size = new System.Drawing.Size(215, 26);
             this.nud_a.TabIndex = 3;
             this.nud_a.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
@@ -82,6 +86,7 @@
             // 
             this.nud_b.Location = new System.Drawing.Point(397, 269);
             this.nud_b.Name = "nud_b";
+            this.nud_b.ReadOnly = true;
             this.nud_b.Size = new System.Drawing.Size(215, 26);
             this.nud_b.TabIndex = 4;
             this.nud_b.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
@@ -90,6 +95,7 @@
             // 
             this.nud_c.Location = new System.Drawing.Point(714, 269);
             this.nud_c.Name = "nud_c";
+            this.nud_c.ReadOnly = true;
             this.nud_c.Size = new System.Drawing.Size(215, 26);
             this.nud_c.TabIndex = 5;
             this.nud_c.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
@@ -148,6 +154,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_a)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_b)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_c)).EndInit();

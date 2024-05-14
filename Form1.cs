@@ -21,19 +21,14 @@ namespace WindowsFormsApp1
             InitializeComponent();
             model = new Model();
 
-            model.observers += new System.EventHandler(this.UpdateFromModel);
-
-            model.set_c(Properties.Settings.Default.SettingC);
-            model.set_b(Properties.Settings.Default.SettingB);
-            model.set_a(Properties.Settings.Default.SettingA);
+            model.dataChanged += new System.EventHandler(this.UpdateFromModel);
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.SettingA = model.get_a();
-            Properties.Settings.Default.SettingB = model.get_b();
-            Properties.Settings.Default.SettingC = model.get_c();
-            Properties.Settings.Default.Save();
+            
+            model.save();
         }
 
         private void UpdateFromModel(object sender, EventArgs e)
@@ -68,7 +63,6 @@ namespace WindowsFormsApp1
                 else if (sender == textbox_b)
                     if (int.TryParse(textbox_b.Text, out int number))
                     {
-                        //model.set_b(Convert.ToInt32(textbox_b.Text));
                         model.set_b(number);
                     }
                     else
@@ -78,7 +72,6 @@ namespace WindowsFormsApp1
                 else if (sender == textbox_c)
                     if (int.TryParse(textbox_c.Text, out int number))
                     {
-                        //model.set_c(Convert.ToInt32(textbox_c.Text));
                         model.set_c(number);
                     }
                     else
@@ -108,5 +101,14 @@ namespace WindowsFormsApp1
                 model.set_c(Convert.ToInt32(nud_c.Value));
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            model.load();
+        }
+
+        private void textbox_b_MouseDown(object sender, MouseEventArgs e)
+        {
+            UpdateFromModel(sender, e);
+        }
     }
 }
