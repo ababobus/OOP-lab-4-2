@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
             Properties.Settings.Default.SettingA = get_a();
             Properties.Settings.Default.SettingB = get_b();
             Properties.Settings.Default.SettingC = get_c();
-            //Properties.Settings.Default.Save();
+            Properties.Settings.Default.Save();
             dataChanged.Invoke(this, EventArgs.Empty);
         }
         public void load()

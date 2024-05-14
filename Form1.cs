@@ -27,8 +27,11 @@ namespace WindowsFormsApp1
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
             model.save();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            model.load();
         }
 
         private void UpdateFromModel(object sender, EventArgs e)
@@ -77,11 +80,6 @@ namespace WindowsFormsApp1
                 model.set_b(nud_b.Value.ToString());
             else if (sender == nud_c)
                 model.set_c(nud_c.Value.ToString());
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            model.load();
         }
 
         private void textbox_b_MouseDown(object sender, MouseEventArgs e)
