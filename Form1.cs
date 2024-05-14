@@ -51,54 +51,32 @@ namespace WindowsFormsApp1
             if (e.KeyCode == Keys.Enter)
             {
                 if (sender == textbox_a)
-                    if (int.TryParse(textbox_a.Text, out int number))
-                    {
-                        //model.set_a(Convert.ToInt32(textbox_a.Text));
-                        model.set_a(number);
-                    }
-                    else
-                    {
-                        UpdateFromModel(sender, e);
-                    }
+                    model.set_a(textbox_a.Text);
                 else if (sender == textbox_b)
-                    if (int.TryParse(textbox_b.Text, out int number))
-                    {
-                        model.set_b(number);
-                    }
-                    else
-                    {
-                        UpdateFromModel(sender, e);
-                    }
+                    model.set_b(textbox_b.Text);
                 else if (sender == textbox_c)
-                    if (int.TryParse(textbox_c.Text, out int number))
-                    {
-                        model.set_c(number);
-                    }
-                    else
-                    {
-                        UpdateFromModel(sender, e);
-                    }
+                    model.set_c(textbox_c.Text);
             }
 
         }
         private void trb_ValueChanged(object sender, EventArgs e)
         {
             if (sender == trackbar_a)
-                model.set_a(Convert.ToInt32(trackbar_a.Value)); 
+                model.set_a(trackbar_a.Value.ToString()); 
             else if (sender == trackbar_b)
-                model.set_b(Convert.ToInt32(trackbar_b.Value));
+                model.set_b(trackbar_b.Value.ToString());
             else if (sender == trackbar_c)
-                model.set_c(Convert.ToInt32(trackbar_c.Value)); 
+                model.set_c(trackbar_c.Value.ToString());
         }
 
         private void nud_ValueChanged(object sender, EventArgs e)
         {
             if (sender == nud_a)
-                model.set_a(Convert.ToInt32(nud_a.Value));
+                model.set_a(nud_a.Value.ToString());
             else if (sender == nud_b)
-                model.set_b(Convert.ToInt32(nud_b.Value));
+                model.set_b(nud_b.Value.ToString());
             else if (sender == nud_c)
-                model.set_c(Convert.ToInt32(nud_c.Value));
+                model.set_c(nud_c.Value.ToString());
         }
 
         private void Form1_Load(object sender, EventArgs e)

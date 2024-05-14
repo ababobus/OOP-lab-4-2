@@ -20,32 +20,39 @@ namespace WindowsFormsApp1
         public int get_b() { return b; }
         public int get_c() { return c; }
 
-        public void set_a(int value)
+        public void set_a(string value)
         {
-            a = Math.Min(100, Math.Max(0, value));
-            b = Math.Max(a, b);
-            c = Math.Max(a, c);
+            if (int.TryParse(value, out int number))
+            {
+                a = Math.Min(100, Math.Max(0, number));
+                b = Math.Max(a, b);
+                c = Math.Max(a, c);
+            }
 
 
             dataChanged.Invoke(this, EventArgs.Empty);
         }
 
-        public void set_b(int value)
+        public void set_b(string value)
         {
-
-            value = Math.Min(100, Math.Max(0, value));
-            value = Math.Max(get_a(), Math.Min(get_c(), value));
-            b = value;
+            if (int.TryParse(value, out int number))
+            {
+                number = Math.Min(100, Math.Max(0, number));
+                number = Math.Max(get_a(), Math.Min(get_c(), number));
+                b = number;
+            }
 
             dataChanged.Invoke(this, EventArgs.Empty);
         }
 
-        public void set_c(int value)
+        public void set_c(string value)
         {
-            c = Math.Min(100, Math.Max(0, value));
-            b = Math.Min(c, b);
-            a = Math.Min(c, a);
-
+            if (int.TryParse(value, out int number))
+            {
+                c = Math.Min(100, Math.Max(0, number));
+                b = Math.Min(c, b);
+                a = Math.Min(c, a);
+            }
             dataChanged.Invoke(this, EventArgs.Empty);
         }
         public void save()
@@ -54,15 +61,15 @@ namespace WindowsFormsApp1
             Properties.Settings.Default.SettingA = get_a();
             Properties.Settings.Default.SettingB = get_b();
             Properties.Settings.Default.SettingC = get_c();
-            Properties.Settings.Default.Save();
+            //Properties.Settings.Default.Save();
             dataChanged.Invoke(this, EventArgs.Empty);
         }
         public void load()
         {
 
-            set_c(Properties.Settings.Default.SettingC);
-            set_b(Properties.Settings.Default.SettingB);
-            set_a(Properties.Settings.Default.SettingA);
+            set_c(Properties.Settings.Default.SettingC.ToString());
+            set_b(Properties.Settings.Default.SettingB.ToString());
+            set_a(Properties.Settings.Default.SettingA.ToString());
             dataChanged.Invoke(this, EventArgs.Empty);
         }
     }
